@@ -1,0 +1,99 @@
+.video-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .video-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .video-form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .video-form-container form div {
+    margin-bottom: 15px;
+  }
+  
+  .video-form-container form label {
+    color: #ddd;
+    margin-bottom: 5px;
+  }
+  
+  .video-form-container form input,
+  .video-form-container form textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 5px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .video-form-container form button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e50914;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .video-form-container form button:hover {
+    background-color: #d40813;
+  }
+  
+  .video-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .video-card {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  .video-card h3 {
+    color: #fff;
+  }
+  
+  .video-card video {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .video-card p {
+    color: #ddd;
+    margin: 10px 0;
+  }
+  
+  .video-card button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e50914;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .video-card button:hover {
+    background-color: #d40813;
+  }
+  

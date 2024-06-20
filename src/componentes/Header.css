@@ -1,0 +1,60 @@
+/* Header.css */
+.header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+  
+  .header.black {
+    background-color: #000;
+  }
+  
+  .header .header--logo {
+    height: 25px;
+    cursor: pointer;
+  }
+  
+  .header .header--logo img {
+    height: 100%;
+  }
+  
+  .header .header--user {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header .header--user .header--avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .header .header--user .header--username {
+    color: #fff;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .header .header--user .header--logout {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: underline;
+  }
+  
+  .header .header--user .header--logout:hover {
+    text-decoration: none;
+  }
+  

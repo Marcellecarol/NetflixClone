@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+  box-sizing: border-box;
+
+}
+body {
+  background-color: #111;
+  color: #fff;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+footer {
+  margin: 50px 0;
+  text-align: center;
+
+}
+
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #333;
+  margin-top: 20px;
+  color: #888;
+}
+.login, .register {
+  max-width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.login h2, .register h2 {
+  margin-bottom: 20px;
+}
+
+.login form, .register form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login input, .register input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login button, .register button {
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login button:hover, .register button:hover {
+  background-color: #0056b3;
+}
+
+.login p, .register p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login a, .register a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.login a:hover, .register a:hover {
+  text-decoration: underline;
+}
