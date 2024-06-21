@@ -26,4 +26,3 @@ const Header = ({ blackHeader, onLogout, user }) => {
 }
 
 export default Header;
-

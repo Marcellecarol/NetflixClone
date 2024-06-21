@@ -1,60 +1,69 @@
-/* Header.css */
+/* Estilo para o cabeçalho */
 .header {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-  }
-  
-  .header.black {
-    background-color: #000;
-  }
-  
-  .header .header--logo {
-    height: 25px;
-    cursor: pointer;
-  }
-  
-  .header .header--logo img {
-    height: 100%;
-  }
-  
-  .header .header--user {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header .header--user .header--avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .header .header--user .header--username {
-    color: #fff;
-    font-size: 16px;
-    margin-right: 10px;
-  }
-  
-  .header .header--user .header--logout {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: underline;
-  }
-  
-  .header .header--user .header--logout:hover {
-    text-decoration: none;
-  }
-  
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo para o cabeçalho com fundo preto */
+.header.black {
+  background-color: #000;
+}
+
+/* Estilo para o logo */
+.header .header--logo {
+  height: 25px;
+  cursor: pointer;
+}
+
+.header .header--logo img {
+  height: 100%;
+}
+
+/* Estilo para a seção do usuário */
+.header .header--user {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para o avatar do usuário */
+.header .header--user .header--avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+
+.header .header--user .header--username {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+
+.header--logout {
+  border: 2px solid #e50914; 
+  padding: 8px 20px;
+  border-radius: 4px;
+  color: #fff; 
+  background-color: transparent; 
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.header--logout:hover {
+  background-color: #e50914; 
+  color: #fff; 
+}

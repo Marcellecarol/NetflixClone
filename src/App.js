@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate, Link, useNavigate } from "react-router-dom";
 import './App.css';
 import tmdb from "./tmdb";
 import MovieRow from "./componentes/MovieRow";
@@ -8,9 +8,7 @@ import Header from "./componentes/Header";
 import Login from "./componentes/Login";
 import Register from "./componentes/Register";
 import Profile from "./componentes/Profile";
-import SerieCard from "./componentes/SerieCard";
 import VideoForm from "./componentes/VideoForm";
-import { getFavorites, addToFavorites, removeFromFavorites } from "./utils/localStorage";
 
 const App = () => {
   const [movieList, setMovieList] = useState([]);
@@ -18,7 +16,6 @@ const App = () => {
   const [blackHeader, setBlackHeader] = useState(false);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(localStorage.getItem('loggedInUser') || null);
-  const [favorites, setFavorites] = useState(getFavorites());
   const [videos, setVideos] = useState(JSON.parse(localStorage.getItem('videos')) || []);
   const [editingVideo, setEditingVideo] = useState(null);
 
@@ -73,19 +70,6 @@ const App = () => {
     setUser(null);
   };
 
-  const toggleFavorite = (id) => {
-    const serie = movieList.find(item => item.id === id);
-    if (!serie) return;
-
-    if (favorites.find(item => item.id === id)) {
-      removeFromFavorites(id);
-      setFavorites(favorites.filter(item => item.id !== id));
-    } else {
-      addToFavorites(serie);
-      setFavorites([...favorites, serie]);
-    }
-  };
-
   const handleAddVideo = (video) => {
     setVideos([...videos, { ...video, id: Date.now() }]);
   };
@@ -103,6 +87,11 @@ const App = () => {
     setEditingVideo(video);
   };
 
+  const getVideoId = (videoUrl) => {
+    const videoId = videoUrl.split('v=')[1];
+    return videoId ? videoId.split('&')[0] : null;
+  };
+
   return (
     <Router>
       <div className="page">
@@ -115,6 +104,26 @@ const App = () => {
             element={user ? <Profile user={user} /> : <Navigate to="/login" />}
           />
           <Route
+            path="/cadastro-video"
+            element={
+              <VideoForm
+                onAddVideo={handleAddVideo}
+                onEditVideo={handleEditVideo}
+                editingVideo={editingVideo}
+              />
+            }
+          />
+          <Route
+            path="/editar-video/:id"
+            element={
+              <VideoForm
+                onAddVideo={handleAddVideo}
+                onEditVideo={handleEditVideo}
+                editingVideo={editingVideo}
+              />
+            }
+          />
+          <Route
             path="/"
             element={
               user ? (
@@ -125,39 +134,28 @@ const App = () => {
                       <MovieRow key={key} title={item.title} items={item.items} />
                     ))}
                   </section>
-                  <section className="favorites">
-                    <h2>My Favorites</h2>
-                    <div className="serie-cards">
-                      {favorites.map(serie => (
-                        <SerieCard
-                          key={serie.id}
-                          id={serie.id}
-                          title={serie.title}
-                          posterUrl={serie.posterUrl}
-                          isFavorite={favorites.some(item => item.id === serie.id)}
-                          onToggleFavorite={toggleFavorite}
-                        />
-                      ))}
-                    </div>
-                  </section>
-                  <section className="video-form">
-                    <VideoForm onAddVideo={handleAddVideo} onEditVideo={handleEditVideo} editingVideo={editingVideo} />
-                  </section>
                   <section className="videos">
-                    <h2>Vídeos Cadastrados</h2>
-                    <div className="video-cards">
-                      {videos.map((video, index) => (
-                        <div key={index} className="video-card">
-                          <h3>{video.title}</h3>
-                          <video width="300" controls>
-                            <source src={video.url} type="video/mp4" />
-                            Seu navegador não suporta a tag de vídeo.
-                          </video>
-                          <p>{video.description}</p>
-                          <button onClick={() => handleEditClick(video)}>Editar</button>
-                          <button onClick={() => handleDeleteVideo(video.id)}>Excluir</button>
-                        </div>
-                      ))}
+                    <div className="video-form-container">
+                      <div className="add-video-button">
+                        <Link to="/cadastro-video" onClick={() => setEditingVideo(null)}>Cadastrar Novo Vídeo</Link>
+                      </div>
+                      <h2>Vídeos Cadastrados</h2>
+                      <div className="video-cards">
+                        {videos.map((video, index) => (
+                          <div key={index} className="video-card">
+                            <h3>{video.title}</h3>
+                            <a href={video.url} target="_blank" rel="noopener noreferrer" className="video-thumbnail">
+                              <img src={`https://img.youtube.com/vi/${getVideoId(video.url)}/0.jpg`} alt={video.title} />
+                            </a>
+                            <p>{video.description}</p>
+                            <p><strong>Categoria:</strong> {video.category}</p>
+                            <div className="video-buttons">
+                              <Link to={`/editar-video/${video.id}`} onClick={() => handleEditClick(video)}>Editar</Link>
+                              <button onClick={() => handleDeleteVideo(video.id)}>Excluir</button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </section>
                   <footer>
@@ -182,3 +180,4 @@ const App = () => {
 };
 
 export default App;
+

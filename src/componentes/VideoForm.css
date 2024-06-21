@@ -1,99 +1,162 @@
 .video-form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #222;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .video-form-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #fff;
-  }
-  
-  .video-form-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .video-form-container form div {
-    margin-bottom: 15px;
-  }
-  
-  .video-form-container form label {
-    color: #ddd;
-    margin-bottom: 5px;
-  }
-  
-  .video-form-container form input,
-  .video-form-container form textarea {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    margin-top: 5px;
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .video-form-container form button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    background-color: #e50914;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .video-form-container form button:hover {
-    background-color: #d40813;
-  }
-  
-  .video-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
+  max-width: 800px; 
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #222; 
+  border-radius: 8px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+  color: #fff; 
+}
+
+.video-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.video-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.video-form-container form div {
+  margin-bottom: 15px;
+}
+
+.video-form-container form label {
+  color: #ddd;
+  margin-bottom: 5px;
+}
+
+.video-form-container form input,
+.video-form-container form textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px; 
+  margin-top: 5px;
+  background-color: #333; 
+  color: #fff; 
+}
+
+.video-form-container form button {
+  padding: 10px 20px; 
+  border: none;
+  border-radius: 4px; 
+  background-color: #e50914; 
+  color: #fff; 
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none; 
+  display: inline-block; 
+  font-family: 'Roboto', sans-serif; 
+}
+
+.video-form-container form button:hover {
+  background-color: #d40813; 
+}
+
+.video-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+  justify-content: center; 
+}
+
+.video-card {
+  background-color: #222; 
+  padding: 60px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+  text-align: center;
+  width: calc(50% - 20px); 
+  margin-bottom: 20px;
+  position: relative; 
+}
+
+.video-card h3 {
+  color: #fff; 
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 8px; 
+}
+
+.video-card p {
+  color: #ddd; 
+  margin: 10px 0;
+}
+
+.video-thumbnail {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px; 
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.video-thumbnail img:hover {
+  transform: scale(1.05); 
+}
+
+.add-video-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add-video-button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e50914; 
+  color: #fff; 
+  text-decoration: none;
+  border-radius: 4px; 
+  transition: background-color 0.3s;
+}
+
+.add-video-button a:hover {
+  background-color: #d40813; 
+}
+
+
+.video-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px; 
+  position: absolute; 
+  bottom: 10px; 
+  left: 0;
+  right: 0;
+}
+
+.video-buttons a,
+.video-buttons button {
+  padding: 10px 20px;
+  margin: 0 5px; 
+  border: none;
+  border-radius: 4px;
+  background-color: #dc3545; 
+  color: #fff; 
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif; 
+  font-size: 14px; 
+}
+
+.video-buttons a:hover,
+.video-buttons button:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 768px) {
   .video-card {
-    background-color: #222;
-    padding: 15px;
-    border-radius: 8px;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
+    width: calc(100% - 20px); 
   }
-  
-  .video-card h3 {
-    color: #fff;
-  }
-  
-  .video-card video {
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  .video-card p {
-    color: #ddd;
-    margin: 10px 0;
-  }
-  
-  .video-card button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #e50914;
-    color: #fff;
-    cursor: pointer;
-    margin: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .video-card button:hover {
-    background-color: #d40813;
-  }
-  
+}
