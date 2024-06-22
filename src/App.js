@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate, Link, useNavigate } from "react-router-dom";
+import { HashRouter as Router, Route, Routes, Navigate, Link } from "react-router-dom";
 import './App.css';
 import tmdb from "./tmdb";
 import MovieRow from "./componentes/MovieRow";
